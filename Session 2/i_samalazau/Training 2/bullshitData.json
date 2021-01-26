@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Turtle Rock",
+        "count": 2,
+        "imageUrl": "https://loremflickr.com/320/240/cat"
+    },
+    {
+        "title": "Silver Salmon Creek",
+        "count": 3,
+        "imageUrl": "https://loremflickr.com/320/240/cat"
+    },
+    {
+        "title": "Chilkoot Trail",
+        "count": 4,
+        "imageUrl": "https://loremflickr.com/320/240/cat"
+    },
+    {
+        "title": "St. Mary Lake",
+        "count": 1,
+        "imageUrl": "https://loremflickr.com/320/240/cat"
+    }
+]
