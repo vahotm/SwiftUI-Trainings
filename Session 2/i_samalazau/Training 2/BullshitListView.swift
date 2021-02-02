@@ -12,6 +12,7 @@ struct BullshitListView: View {
     @State var showsInput = false
 //    @State var selectedItem
 //    @State var rowSelected = false
+    @State var sortAscending = false
     
     var body: some View {
         NavigationView {
@@ -38,7 +39,18 @@ struct BullshitListView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("The Bullshit List"))
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading:
+                                    Button(action: {
+                                        if sortAscending {
+                                            dataSource.items.sort(by: { $0.title > $1.title })
+                                        } else {
+                                            dataSource.items.sort(by: { $0.title < $1.title })
+                                        }
+                                        sortAscending.toggle()
+                                    }, label: {
+                                        Image(systemName: "arrow.up.arrow.down")
+                                    }),
+                                trailing:
                                     Button(action: {
                                         self.showsInput = true
                                     }, label: {
@@ -48,6 +60,7 @@ struct BullshitListView: View {
                                         BullshitInputView(onDismiss: { text in
                                             dataSource.items.append(BullshitItem(title: text))
                                         })
+                                        Text("123")
                                     }
             )
         }
