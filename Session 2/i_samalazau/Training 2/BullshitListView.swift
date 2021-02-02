@@ -13,31 +13,40 @@ struct BullshitListView: View {
 //    @State var selectedItem
 //    @State var rowSelected = false
     @State var sortAscending = false
+    @State var searchText = ""
+
+    func filter(_ item: BullshitItem) -> Bool {
+        searchText.isEmpty ? true : item.title.lowercased().contains(searchText.lowercased())
+    }
     
     var body: some View {
         NavigationView {
-            List(dataSource.items) { item in
-                NavigationLink(destination: BullshitDetails(item: $dataSource.items[0])) {
-                    BullshitRow(item: item)
-//                        .onTapGesture {
-//                            selectedItem = item
-//                            rowSelected = true
-//                        }
-                        .contextMenu {
-                            Button("Delete") {
-                                dataSource.items.removeAll { (searchItem) -> Bool in
-                                    searchItem == item
+            VStack {
+                SearchBar(text: $searchText)
+                List(dataSource.items.filter(filter(_:))) { item in
+                    NavigationLink(destination: BullshitDetails(item: $dataSource.items[0])) {
+                        BullshitRow(item: item)
+                            //                        .onTapGesture {
+                            //                            selectedItem = item
+                            //                            rowSelected = true
+                            //                        }
+                            .contextMenu {
+                                Button("Delete") {
+                                    dataSource.items.removeAll { (searchItem) -> Bool in
+                                        searchItem == item
+                                    }
                                 }
                             }
-                        }
+                    }
+                    //                .onChange(of: selectedItem) { newValue in
+                    //                    guard rowSelected == true else { return }
+                    //                    guard let idx = dataSource.items.firstIndex(of: item) else { return }
+                    //                    dataSource.items[idx] = newValue
+                    //                }
                 }
-//                .onChange(of: selectedItem) { newValue in
-//                    guard rowSelected == true else { return }
-//                    guard let idx = dataSource.items.firstIndex(of: item) else { return }
-//                    dataSource.items[idx] = newValue
-//                }
+                .listStyle(GroupedListStyle())
+
             }
-            .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("The Bullshit List"))
             .navigationBarItems(leading:
                                     Button(action: {

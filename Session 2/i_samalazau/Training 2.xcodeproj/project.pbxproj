@@ -20,6 +20,7 @@
 		5C0C5F3725BDD1170000199C /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F3625BDD1170000199C /* TextAlert.swift */; };
 		5C0C5F3C25BE010B0000199C /* BullshitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */; };
 		5C0C5F5E25C002220000199C /* BullshitInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F5D25C002210000199C /* BullshitInputView.swift */; };
+		5C77936925C97A8100B2D3AB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C77936825C97A8100B2D3AB /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5C0C5F3625BDD1170000199C /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullshitDetails.swift; sourceTree = "<group>"; };
 		5C0C5F5D25C002210000199C /* BullshitInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullshitInputView.swift; sourceTree = "<group>"; };
+		5C77936825C97A8100B2D3AB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				5C0C5F3025BDC5B50000199C /* ImageLoader.swift */,
 				5C0C5F3325BDC9260000199C /* LoadableImage.swift */,
 				5C0C5F3625BDD1170000199C /* TextAlert.swift */,
+				5C77936825C97A8100B2D3AB /* SearchBar.swift */,
 				5C0C5F1725BD9FE20000199C /* Assets.xcassets */,
 				5C0C5F2D25BDC4680000199C /* bullshitData.json */,
 				5C0C5F1C25BD9FE20000199C /* Info.plist */,
@@ -175,6 +178,7 @@
 				5C0C5F5E25C002220000199C /* BullshitInputView.swift in Sources */,
 				5C0C5F3725BDD1170000199C /* TextAlert.swift in Sources */,
 				5C0C5F2725BDB1490000199C /* BullshitItem.swift in Sources */,
+				5C77936925C97A8100B2D3AB /* SearchBar.swift in Sources */,
 				5C0C5F1425BD9FE00000199C /* Training_2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
