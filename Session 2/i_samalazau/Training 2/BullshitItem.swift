@@ -14,5 +14,27 @@ struct BullshitItem: Hashable, Codable, Identifiable {
     var count: Int
     var imageUrl: URL
 
-    var id: String { title }
+    var id: Int = Int.random(in: 1...Int.max)
+
+    init(title: String, count: Int = 0) {
+        self.title = title
+        self.count = count
+        self.imageUrl = Self.imageUrl(from: id)
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decode(Int.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        count = try container.decode(Int.self, forKey: .count)
+        imageUrl = Self.imageUrl(from: id)
+    }
+}
+
+private extension BullshitItem {
+
+    static func imageUrl(from id: Int) -> URL {
+        URL(string: "https://loremflickr.com/320/240/cat?lock=\(id)")!
+    }
 }

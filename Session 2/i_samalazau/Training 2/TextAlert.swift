@@ -57,9 +57,9 @@ struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
             context.coordinator.alertController = UIAlertController(alert: alert)
             uiViewController.present(context.coordinator.alertController!, animated: true)
         }
-//        if !isPresented && uiViewController.presentedViewController == context.coordinator.alertController {
-//            uiViewController.dismiss(animated: true)
-//        }
+        if !isPresented && uiViewController.presentedViewController == context.coordinator.alertController {
+            uiViewController.dismiss(animated: true)
+        }
     }
 }
 
@@ -78,24 +78,3 @@ extension View {
         AlertWrapper(isPresented: isPresented, alert: alert, content: self)
     }
 }
-
-//struct ContentView: View {
-//    @State var showsAlert = false
-//    var body: some View {
-//        VStack {
-//            Text("Hello, World!")
-//            Button("alert") {
-//                self.showsAlert = true
-//            }
-//        }
-//        .alert(isPresented: $showsAlert, TextAlert(title: "Title", action: {
-//            print("Callback \($0 ?? "<cancel>")")
-//        }))
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

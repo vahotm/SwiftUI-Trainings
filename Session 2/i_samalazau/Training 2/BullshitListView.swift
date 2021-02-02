@@ -8,15 +8,33 @@
 import SwiftUI
 
 struct BullshitListView: View {
-    @State var showsInput = false
     @ObservedObject var dataSource = DataSource()
+    @State var showsInput = false
+//    @State var selectedItem
+//    @State var rowSelected = false
     
     var body: some View {
         NavigationView {
             List(dataSource.items) { item in
                 NavigationLink(destination: BullshitDetails(item: $dataSource.items[0])) {
                     BullshitRow(item: item)
+//                        .onTapGesture {
+//                            selectedItem = item
+//                            rowSelected = true
+//                        }
+                        .contextMenu {
+                            Button("Delete") {
+                                dataSource.items.removeAll { (searchItem) -> Bool in
+                                    searchItem == item
+                                }
+                            }
+                        }
                 }
+//                .onChange(of: selectedItem) { newValue in
+//                    guard rowSelected == true else { return }
+//                    guard let idx = dataSource.items.firstIndex(of: item) else { return }
+//                    dataSource.items[idx] = newValue
+//                }
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("The Bullshit List"))
@@ -28,12 +46,15 @@ struct BullshitListView: View {
                                     })
                                     .sheet(isPresented: $showsInput) {
                                         BullshitInputView(onDismiss: { text in
-                                            guard let url = URL(string: "https://loremflickr.com/320/240/cat") else { return }
-                                            dataSource.items.append(BullshitItem(title: text, count: 0, imageUrl: url))
+                                            dataSource.items.append(BullshitItem(title: text))
                                         })
                                     }
             )
         }
+//        .alert(isPresented: $showsInput, TextAlert(title: "123", action: { (text) in
+//            guard let url = URL(string: "https://loremflickr.com/320/240/cat"), let text = text else { return }
+//            dataSource.items.append(BullshitItem(title: text, count: 0, imageUrl: url))
+//        }))
     }
 }
 
