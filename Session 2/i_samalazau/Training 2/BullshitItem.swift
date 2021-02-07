@@ -14,11 +14,12 @@ struct BullshitItem: Hashable, Codable, Identifiable {
     var count: Int
     var imageUrl: URL
 
-    var id: Int = Int.random(in: 1...Int.max)
+    var id: Int
 
-    init(title: String, count: Int = 0) {
+    init(title: String, count: Int = 0, id: Int = Int.random(in: 1...Int.max)) {
         self.title = title
         self.count = count
+        self.id = id
         self.imageUrl = Self.imageUrl(from: id)
     }
 

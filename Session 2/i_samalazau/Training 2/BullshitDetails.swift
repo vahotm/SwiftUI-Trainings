@@ -9,6 +9,12 @@ import SwiftUI
 
 struct BullshitDetails: View {
     @Binding var item: BullshitItem
+    @State var countInternal: Int
+
+    init(item: Binding<BullshitItem>) {
+        _item = item
+        _countInternal = State(wrappedValue: item.wrappedValue.count)
+    }
 
     var body: some View {
         NavigationView {
@@ -18,22 +24,12 @@ struct BullshitDetails: View {
                     .background(Color.gray)
 
                 HStack {
-//                    Text("Count")
-//                        .font(.headline)
-//                    Spacer()
-//                    Text(item.count)
-//                        .font(.body)
-                    Stepper(value: $item.count, in: 0...100, label: {
-                        HStack {
-                            Text("Count")
-                                .font(.headline)
-                            Spacer()
-                            Text("\(item.count)")
-                                .font(.body)
+                    Stepper("Count: \(countInternal)", value: $countInternal, step: 1, onEditingChanged: { (isPressed) in
+                        if !isPressed {
+                            item.count = countInternal
                         }
                     })
-//                    Stepper("Count", value: $item.count, in: 0...100)
-                        .padding()
+                    .padding()
                 }
             }
             .navigationBarTitle(Text(item.title))

@@ -10,8 +10,6 @@ import SwiftUI
 struct BullshitListView: View {
     @ObservedObject var dataSource = DataSource()
     @State var showsInput = false
-//    @State var selectedItem
-//    @State var rowSelected = false
     @State var sortAscending = false
     @State var searchText = ""
 
@@ -22,14 +20,10 @@ struct BullshitListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText)
+                SearchBar(text: $searchText).padding(.top)
                 List(dataSource.items.filter(filter(_:))) { item in
-                    NavigationLink(destination: BullshitDetails(item: $dataSource.items[0])) {
+                    NavigationLink(destination: BullshitDetails(item: $dataSource.items[dataSource.index(of: item)])) {
                         BullshitRow(item: item)
-                            //                        .onTapGesture {
-                            //                            selectedItem = item
-                            //                            rowSelected = true
-                            //                        }
                             .contextMenu {
                                 Button("Delete") {
                                     dataSource.items.removeAll { (searchItem) -> Bool in
@@ -38,16 +32,12 @@ struct BullshitListView: View {
                                 }
                             }
                     }
-                    //                .onChange(of: selectedItem) { newValue in
-                    //                    guard rowSelected == true else { return }
-                    //                    guard let idx = dataSource.items.firstIndex(of: item) else { return }
-                    //                    dataSource.items[idx] = newValue
-                    //                }
                 }
                 .listStyle(GroupedListStyle())
 
             }
             .navigationBarTitle(Text("The Bullshit List"))
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading:
                                     Button(action: {
                                         if sortAscending {

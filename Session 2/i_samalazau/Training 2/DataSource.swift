@@ -16,6 +16,14 @@ class DataSource: ObservableObject {
         items = DataSource.load("bullshitData.json")
     }
 
+//    func item(by id: Int) -> BullshitItem? {
+//        items.first(where: { $0.id == id })
+//    }
+
+    func index(of item: BullshitItem) -> Int {
+        items.firstIndex(where: { $0.id == item.id }) ?? 0
+    }
+
     static func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
 
