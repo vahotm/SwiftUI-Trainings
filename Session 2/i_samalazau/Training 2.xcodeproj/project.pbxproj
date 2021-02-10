@@ -20,6 +20,10 @@
 		5C0C5F3725BDD1170000199C /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F3625BDD1170000199C /* TextAlert.swift */; };
 		5C0C5F3C25BE010B0000199C /* BullshitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */; };
 		5C0C5F5E25C002220000199C /* BullshitInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C5F5D25C002210000199C /* BullshitInputView.swift */; };
+		5C6EEBD525D2A7840009257E /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EEBD425D2A7840009257E /* UsersListView.swift */; };
+		5C6EEBD825D2A7BF0009257E /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EEBD725D2A7BF0009257E /* UsersDataSource.swift */; };
+		5C6EEBDB25D2A7EC0009257E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EEBDA25D2A7EC0009257E /* User.swift */; };
+		5C6EEBE425D2B5F40009257E /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EEBE325D2B5F40009257E /* UserRow.swift */; };
 		5C77936925C97A8100B2D3AB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C77936825C97A8100B2D3AB /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,10 @@
 		5C0C5F3625BDD1170000199C /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullshitDetails.swift; sourceTree = "<group>"; };
 		5C0C5F5D25C002210000199C /* BullshitInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullshitInputView.swift; sourceTree = "<group>"; };
+		5C6EEBD425D2A7840009257E /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		5C6EEBD725D2A7BF0009257E /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
+		5C6EEBDA25D2A7EC0009257E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C6EEBE325D2B5F40009257E /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
 		5C77936825C97A8100B2D3AB /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,17 +80,9 @@
 		5C0C5F1225BD9FE00000199C /* Training 2 */ = {
 			isa = PBXGroup;
 			children = (
-				5C0C5F1325BD9FE00000199C /* Training_2App.swift */,
-				5C0C5F1525BD9FE00000199C /* BullshitListView.swift */,
-				5C0C5F5D25C002210000199C /* BullshitInputView.swift */,
-				5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */,
-				5C0C5F2325BDB10F0000199C /* BullshitRow.swift */,
-				5C0C5F2625BDB1490000199C /* BullshitItem.swift */,
-				5C0C5F2A25BDC3B60000199C /* DataSource.swift */,
-				5C0C5F3025BDC5B50000199C /* ImageLoader.swift */,
-				5C0C5F3325BDC9260000199C /* LoadableImage.swift */,
-				5C0C5F3625BDD1170000199C /* TextAlert.swift */,
-				5C77936825C97A8100B2D3AB /* SearchBar.swift */,
+				5C6EEBDF25D2B1E90009257E /* Application */,
+				5C6EEBDE25D2B1CB0009257E /* View */,
+				5C6EEBDD25D2B1C60009257E /* Model */,
 				5C0C5F1725BD9FE20000199C /* Assets.xcassets */,
 				5C0C5F2D25BDC4680000199C /* bullshitData.json */,
 				5C0C5F1C25BD9FE20000199C /* Info.plist */,
@@ -97,6 +97,66 @@
 				5C0C5F1A25BD9FE20000199C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5C6EEBDD25D2B1C60009257E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C0C5F2A25BDC3B60000199C /* DataSource.swift */,
+				5C6EEBD725D2A7BF0009257E /* UsersDataSource.swift */,
+				5C0C5F2625BDB1490000199C /* BullshitItem.swift */,
+				5C6EEBDA25D2A7EC0009257E /* User.swift */,
+				5C0C5F3025BDC5B50000199C /* ImageLoader.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C6EEBDE25D2B1CB0009257E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C6EEBE025D2B2010009257E /* Main */,
+				5C6EEBE125D2B2070009257E /* Supplementary */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C6EEBDF25D2B1E90009257E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5C0C5F1325BD9FE00000199C /* Training_2App.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5C6EEBE025D2B2010009257E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5C0C5F1525BD9FE00000199C /* BullshitListView.swift */,
+				5C6EEBD425D2A7840009257E /* UsersListView.swift */,
+				5C0C5F3B25BE010B0000199C /* BullshitDetails.swift */,
+				5C0C5F5D25C002210000199C /* BullshitInputView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5C6EEBE125D2B2070009257E /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				5C6EEBE625D2B7650009257E /* Rows */,
+				5C0C5F3325BDC9260000199C /* LoadableImage.swift */,
+				5C77936825C97A8100B2D3AB /* SearchBar.swift */,
+				5C0C5F3625BDD1170000199C /* TextAlert.swift */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		5C6EEBE625D2B7650009257E /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				5C0C5F2325BDB10F0000199C /* BullshitRow.swift */,
+				5C6EEBE325D2B5F40009257E /* UserRow.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,12 +232,16 @@
 				5C0C5F2425BDB10F0000199C /* BullshitRow.swift in Sources */,
 				5C0C5F3425BDC9260000199C /* LoadableImage.swift in Sources */,
 				5C0C5F1625BD9FE00000199C /* BullshitListView.swift in Sources */,
+				5C6EEBE425D2B5F40009257E /* UserRow.swift in Sources */,
 				5C0C5F3125BDC5B50000199C /* ImageLoader.swift in Sources */,
 				5C0C5F3C25BE010B0000199C /* BullshitDetails.swift in Sources */,
 				5C0C5F2B25BDC3B60000199C /* DataSource.swift in Sources */,
+				5C6EEBDB25D2A7EC0009257E /* User.swift in Sources */,
 				5C0C5F5E25C002220000199C /* BullshitInputView.swift in Sources */,
+				5C6EEBD525D2A7840009257E /* UsersListView.swift in Sources */,
 				5C0C5F3725BDD1170000199C /* TextAlert.swift in Sources */,
 				5C0C5F2725BDB1490000199C /* BullshitItem.swift in Sources */,
+				5C6EEBD825D2A7BF0009257E /* UsersDataSource.swift in Sources */,
 				5C77936925C97A8100B2D3AB /* SearchBar.swift in Sources */,
 				5C0C5F1425BD9FE00000199C /* Training_2App.swift in Sources */,
 			);

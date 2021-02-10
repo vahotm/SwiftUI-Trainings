@@ -10,10 +10,11 @@ import SwiftUI
 struct LoadableImage: View {
 
     @ObservedObject var imageLoader: ImageLoader
-    @State var image: UIImage = UIImage()
+    @State var image: UIImage
 
-    init(url: URL) {
+    init(url: URL, placeholder: UIImage = UIImage()) {
         imageLoader = ImageLoader(url: url)
+        _image = State(wrappedValue:placeholder)
     }
 
     var body: some View {
