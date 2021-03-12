@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct PodcastsApp: App {
+    @State var playerFrame = CGRect.zero
+
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -23,6 +25,25 @@ struct PodcastsApp: App {
                         Text("Downloads")
                     }
             }
+            .onPreferenceChange(FrameKey.self, perform: { frame in
+                self.playerFrame = frame
+                print(self.playerFrame)
+            })
+            .overlay(
+                Rectangle()
+                    .foregroundColor(.red)
+                    .frame(width: playerFrame.width, height: playerFrame.height)
+            )
+            .environmentObject(PlayerController())
         }
+    }
+}
+
+struct FrameKey: PreferenceKey {
+
+    typealias Value = CGRect
+    static var defaultValue: CGRect = .zero
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        value = nextValue()
     }
 }

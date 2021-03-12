@@ -31,17 +31,22 @@ class FeedDataSource: ObservableObject {
     func fetchFeed() {
         cancellable = parser.fetch(queue: .global(qos: .userInitiated))
             .receive(on: DispatchQueue.main)
-//            .tryCompactMap { (feed) -> RSSFeed in
+            .tryCompactMap { (feed) -> RSSFeed? in
+                guard case let Feed.rss(rssFeed) = feed else { return nil }
+                return rssFeed
+            }
+            .replaceError(with: nil)
+//            .compactMap { feed in
 //                guard case let Feed.rss(rssFeed) = feed else { return nil }
 //                return rssFeed
 //            }
-//            .assign(to: \.feed, on: self)
+            .assign(to: \.feed, on: self)
 
-            .sink(receiveCompletion: { _ in
-            }, receiveValue: { [weak self] feed in
-                guard case let Feed.rss(rssFeed) = feed else { return }
-                self?.feed = rssFeed
-            })
+//            .sink(receiveCompletion: { result in
+//            }, receiveValue: { [weak self] feed in
+//                guard case let Feed.rss(rssFeed) = feed else { return }
+//                self?.feed = rssFeed
+//            })
     }
 
 }

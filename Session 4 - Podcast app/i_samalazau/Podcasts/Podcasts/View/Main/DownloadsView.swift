@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct DownloadsView: View {
+    @EnvironmentObject var playerController: PlayerController
+
 
     var body: some View {
-        Text("Downloads")
-            .padding()
+        VStack {
+            Text("Downloads")
+                .padding()
+            
+            if playerController.state == .playing {
+                PlayerView()
+                    .frame(maxWidth: .infinity)
+                    .transition(.move(edge: .bottom))
+            }
+        }
     }
 }
