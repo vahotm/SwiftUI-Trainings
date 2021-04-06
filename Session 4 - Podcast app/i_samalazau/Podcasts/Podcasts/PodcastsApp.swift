@@ -25,16 +25,17 @@ struct PodcastsApp: App {
                         Text("Downloads")
                     }
             }
-            .onPreferenceChange(FrameKey.self, perform: { frame in
-                self.playerFrame = frame
-                print(self.playerFrame)
-            })
-            .overlay(
-                Rectangle()
-                    .foregroundColor(.red)
-                    .frame(width: playerFrame.width, height: playerFrame.height)
-            )
+//            .onPreferenceChange(FrameKey.self, perform: { frame in
+//                self.playerFrame = frame
+//                print(self.playerFrame)
+//            })
+//            .overlay(
+//                Rectangle()
+//                    .foregroundColor(.red)
+//                    .frame(width: playerFrame.width, height: playerFrame.height)
+//            )
             .environmentObject(PlayerController())
+            .environmentObject(DownloadManager())
         }
     }
 }

@@ -8,11 +8,21 @@
 import Foundation
 import FeedKit
 import AVFoundation
+import SwiftUI
+
+protocol PlayableItem {
+    var playableURL: URL? { get }
+}
 
 enum PlayerState {
     case uninitialized
+    case preparingToPlay
     case playing
     case paused
+
+    var isActive: Bool {
+        self != .uninitialized
+    }
 }
 
 class PlayerController: ObservableObject {
